@@ -60,14 +60,7 @@ class TwitterBootstrapFormFor::FormBuilder < ActionView::Helpers::FormBuilder
         when text              then template.label_tag(nil, text, options, &nil)
       end
 
-      template.concat template.content_tag(:div, :class => 'controls') {
-        template.fields_for(
-          self.object_name,
-          self.object,
-          self.options.merge(:builder => TwitterBootstrapFormFor::FormControls),
-          &block
-        )
-      }
+      template.concat template.content_tag(:div, :class => 'controls', &block)
     end
   end
 
